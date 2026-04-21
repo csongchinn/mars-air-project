@@ -13,4 +13,4 @@ jobs:
         uses: cypress-io/github-action@v6
         with:
           browser: chrome
-          spec: cypress/e2e/*.cy.js
+          spec: C:\Users\chinn\Mars Air\cypress\e2e\Homepage.js
