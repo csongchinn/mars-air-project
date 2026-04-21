@@ -25,5 +25,6 @@ jobs:
         with:
           name: cucumber-report
           path: |
+            cypress/reports/
             cypress/screenshots/
           retention-days: 7

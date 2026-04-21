@@ -17,6 +17,14 @@
     "multiple-cucumber-html-reporter": "^3.10.0"
   },
   "cypress-cucumber-preprocessor": {
+    "json": {
+      "enabled": true,
+      "output": "cypress/reports/json/cucumber-report.json"
+    },
+    "messages": {
+      "enabled": true,
+      "output": "cypress/reports/messages/cucumber-messages.ndjson"
+    },
     "stepDefinitions": [
       "cypress/e2e/**/*.js",
       "cypress/stepdef/**/*.js"
