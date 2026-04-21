@@ -13,4 +13,15 @@ jobs:
         uses: cypress-io/github-action@v6
         with:
           browser: chrome
-          spec: cypress/e2e/**/*.js
+          # spec: cypress/e2e/**/*.js
+
+      - name: Generate HTML Report
+        if: always() # Run even if tests fail
+        run: node report.js
+
+      - name: Upload Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cucumber-report
+          path: cypress/reports/

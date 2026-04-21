@@ -15,3 +15,17 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands'
+
+afterEach(() => {
+  const screenshotsFolder = Cypress.config("screenshotsFolder");
+  if (window.Cypress && Cypress.test.state === "failed") {
+    const screenshotName = `${Cypress.spec.name} -- ${Cypress.currentTest.title} (failed).png`;
+    cy.readFile(`${screenshotsFolder}/${Cypress.spec.name}/${screenshotName}`, "base64").then((imgData) => {
+      if (imgData) {
+        cy.log("Attaching screenshot to Cucumber report");
+        // This attaches the image to the JSON file
+        window.cucumberJson.attach(imgData, "image/png");
+      }
+    });
+  }
+});
