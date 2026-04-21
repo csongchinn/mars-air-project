@@ -13,3 +13,4 @@ jobs:
         uses: cypress-io/github-action@v6
         with:
           browser: chrome
+          spec: cypress/e2e/*.cy.js
