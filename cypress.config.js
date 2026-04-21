@@ -5,15 +5,20 @@ const createEsbuildPlugin = require("@badeball/cypress-cucumber-preprocessor/esb
 
 module.exports = defineConfig({
   e2e: {
+    viewportWidth: 1280,
+    viewportHeight: 720,
     specPattern: "**/*.feature",
     async setupNodeEvents(on, config) {
-      await preprocessor.addCucumberTransformerContext(on, config);
+      // Use the exact function name found in your terminal logs:
+      await preprocessor.addCucumberPreprocessorPlugin(on, config);
+
       on(
         "file:preprocessor",
         createBundler({
           plugins: [createEsbuildPlugin.default(config)],
         })
       );
+
       return config;
     },
   },

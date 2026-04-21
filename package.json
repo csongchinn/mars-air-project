@@ -17,10 +17,9 @@
     "multiple-cucumber-html-reporter": "^3.10.0"
   },
   "cypress-cucumber-preprocessor": {
-  "stepDefinitions": [
-    "cypress/e2e/**/*.js",
-    "cypress/stepdef/**/*.js",
-    "cypress/support/step_definitions/**/*.js"
-  ]
-}
+    "stepDefinitions": [
+      "cypress/e2e/**/*.js",
+      "cypress/stepdef/**/*.js"
+    ]
+  }
 }

@@ -17,15 +17,21 @@
 import './commands'
 
 afterEach(() => {
-  const screenshotsFolder = Cypress.config("screenshotsFolder");
-  if (window.Cypress && Cypress.test.state === "failed") {
+  if (!window.Cypress) return;
+
+  const testState = Cypress.test?.state || (Cypress.currentTest && Cypress.currentTest.state);
+
+  if (testState === "failed") {
+    const screenshotsFolder = Cypress.config("screenshotsFolder");
     const screenshotName = `${Cypress.spec.name} -- ${Cypress.currentTest.title} (failed).png`;
-    cy.readFile(`${screenshotsFolder}/${Cypress.spec.name}/${screenshotName}`, "base64").then((imgData) => {
+    
+    // Only attempt to read the file if we have a valid path
+    cy.readFile(`${screenshotsFolder}/${Cypress.spec.name}/${screenshotName}`, "base64", { timeout: 0 }).then((imgData) => {
       if (imgData) {
-        cy.log("Attaching screenshot to Cucumber report");
-        // This attaches the image to the JSON file
         window.cucumberJson.attach(imgData, "image/png");
       }
+    }).catch(() => {
+      console.log("Screenshot not found for report attachment");
     });
   }
 });

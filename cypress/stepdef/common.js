@@ -4,3 +4,7 @@ Given('I navigate to Mars Airlines homepage', ()=>{
     cy.visit('https://marsair.recruiting.thoughtworks.net/SongChinn')
     cy.url().should('include', '/SongChinn')
 });
+
+Then('I took a screenshot of the homepage', ()=>{
+    cy.screenshot('homepage')
+})

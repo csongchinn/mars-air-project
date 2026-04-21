@@ -13,10 +13,9 @@ jobs:
         uses: cypress-io/github-action@v6
         with:
           browser: chrome
-          # spec: cypress/e2e/**/*.js
 
       - name: Generate HTML Report
-        if: always() # Run even if tests fail
+        if: always()
         run: node report.js
 
       - name: Upload Report
