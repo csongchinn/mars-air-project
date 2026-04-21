@@ -1,1 +1,1 @@
-#E2E Test automation for Mars Air - Cypress
+# E2E Test automation for Mars Air - Cypress
