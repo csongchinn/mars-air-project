@@ -12,21 +12,21 @@ jobs:
       matrix:
         include:
           - tag: "@home_page_smoke"
-            name: "Home Page Smoke Test"
+            name: "Home Page"
 
           - tag: "@marsair_logo_smoke"
-            name: "MarsAir Logo Smoke Test"
+            name: "MarsAir Logo"
 
           - tag: "@red_planet_smoke"
-            name: "Red Planet Smoke Test"
+            name: "Red Planet"
 
           - tag: "@report_issues_smoke"
-            name: "Report & Issues Smoke Test"
+            name: "Report & Issues"
 
           - tag: "@back_button_smoke"
-            name: "Back Button Smoke Test"
+            name: "Back Button"
 
-    name: Smoke Test - ${{ matrix.name }}
+    name: ${{ matrix.name }} - Smoke Test 
 
     steps:
       - name: Checkout Code
@@ -39,7 +39,7 @@ jobs:
         continue-on-error: true
         run: npx cypress run \
           --spec "cypress/e2e/MarsAirSmoke.feature" \
-          --env tags="${{ matrix.tag }}"
+          --env TAGS="${{ matrix.tag }}"
 
       - name: Generate Cucumber Report
         run: node report.js
