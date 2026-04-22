@@ -36,7 +36,6 @@ jobs:
         run: npm ci
 
       - name: Test Run
-        continue-on-error: true
         run: |
           npx cypress run \
           --spec "cypress/e2e/MarsAirSmoke.feature" \
