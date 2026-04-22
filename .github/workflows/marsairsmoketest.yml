@@ -4,8 +4,30 @@ on:
   workflow_dispatch:
 
 jobs:
-  Navigation:
+  smoke-tests:
     runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - tag: "@home_page_smoke"
+            name: "Home Page Smoke Test"
+
+          - tag: "@marsair_logo_smoke"
+            name: "MarsAir Logo Smoke Test"
+
+          - tag: "@red_planet_smoke"
+            name: "Red Planet Smoke Test"
+
+          - tag: "@report_issues_smoke"
+            name: "Report & Issues Smoke Test"
+
+          - tag: "@back_button_smoke"
+            name: "Back Button Smoke Test"
+
+    name: Smoke Test - ${{ matrix.name }}
+
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
@@ -13,9 +35,11 @@ jobs:
       - name: Install Dependencies
         run: npm ci
 
-      - name: Test Run
+      - name: Run Cypress Tests by Tag
         continue-on-error: true
-        run: npx cypress run --spec "cypress/e2e/MarsAirSmoke.feature"
+        run: npx cypress run \
+          --spec "cypress/e2e/MarsAirSmoke.feature" \
+          --env tags="${{ matrix.tag }}"
 
       - name: Generate Cucumber Report
         run: node report.js
@@ -24,7 +48,7 @@ jobs:
         uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: cucumber-report
+          name: cucumber-report-${{ matrix.tag }}
           path: |
             cypress/reports/
             cypress/screenshots/
