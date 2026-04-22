@@ -1,4 +1,4 @@
-name: Homepage Testing
+name: Mars Air Smoke Test
 
 on:
   workflow_dispatch:
@@ -15,7 +15,7 @@ jobs:
 
       - name: Test Run
         continue-on-error: true
-        run: npx cypress run --spec "cypress/e2e/Homepage.feature"
+        run: npx cypress run --spec "cypress/e2e/MarsAirSmoke.feature"
 
       - name: Generate Cucumber Report
         run: node report.js
