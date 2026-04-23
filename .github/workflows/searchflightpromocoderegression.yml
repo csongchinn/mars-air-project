@@ -29,7 +29,7 @@ jobs:
           - tag: "@search_flight_promo_code_regression_unsuccessful"
             name: "Search Flight With Promo Code - Unsuccessful"
 
-    name: ${{ matrix.name }} - Smoke Test 
+    name: ${{ matrix.name }} - Regression Test 
 
     steps:
       - name: Checkout Code

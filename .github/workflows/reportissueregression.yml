@@ -14,7 +14,7 @@ jobs:
           - tag: "@report_issue_regression"
             name: "Report an Issue"
 
-    name: ${{ matrix.name }} - Smoke Test 
+    name: ${{ matrix.name }} - Regression Test 
 
     steps:
       - name: Checkout Code
