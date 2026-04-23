@@ -115,3 +115,10 @@ Then the search results should display "Unfortunately, this schedule is not poss
 
 **Expected result**
 - Search results are displayed correctly. 
+
+# Assumptions 
+
+- Promotional code can apply a discount of up to 90%.
+- Promotional code can be reused. Confirmation is required if usage should be restricted.
+- Seats availability details are not accessible.
+- Seats availablility is out of scope for this testing.
