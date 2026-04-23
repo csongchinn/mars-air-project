@@ -32,7 +32,7 @@ Risk Assumptions: Due to time constraints, testing is limited to high-level smok
 # Test Case
 *#1 - Basic Search Flow*
 
-Given the user is searching fo flights to Mars
+Given the user is searching for flights to Mars
 
 When the user search departing and returning flight
 
@@ -46,6 +46,10 @@ Then the search results should display "Seats availabe! Call 0800 MARSAIR to boo
 
 OR the search results should display "Sorry, there are no more seats available." for seats unavailable
 
+**Expected result**
+- Available flights are displayed correctly.
+- Search results messages are displayed correctly.
+
 ---
 
 *#2 - Promotional Codes*
@@ -56,6 +60,9 @@ When the user clicks submit button
 
 Then the search results should display "Promotional code [code] used: [discount]% discount!" message
 
+**Expected result**
+- Search results are displayed correctly.
+
 --
 
 Given the user enters an invalid promotional code on search flight form
@@ -63,6 +70,9 @@ Given the user enters an invalid promotional code on search flight form
 When the user clicks submit button
 
 Then the search results should display "Sorry, code [invalid promo code] is not valid" message
+
+**Expected result**
+- Search results are displayed correctly. 
 
 ---
 
@@ -76,6 +86,10 @@ When the user clicks on the text
 
 Then it should take the user to Home page
 
+**Expected result**
+- "Book a ticket to the red planet now!" are shown
+- "Book a ticket to the red planet now!" can be clicked and links to Home page
+
 --
 
 Given the user is on a page that is not Home Page
@@ -86,6 +100,9 @@ When the user clicks on the logo
 
 Then it should take the user to Home page
 
+**Expected result**
+- MarsAir logo can be clicked and links to Home page
+
 ---
 
 *#4 - Invalid Return Dates*
@@ -95,3 +112,6 @@ Given the user searches an invalid flight trip on Home page
 When the user clicks submit button
 
 Then the search results should display "Unfortunately, this schedule is not possible. Please try again."
+
+**Expected result**
+- Search results are displayed correctly. 
