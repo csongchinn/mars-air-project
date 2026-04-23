@@ -155,7 +155,7 @@ Report an Issue:
 - "Book a ticket to the red planet now!" is not a link
 - Back button does not work as assumed 
 
---
+---
 
 **Search Flights and Promo Code Regression Test**
 - Total test jobs: 6
@@ -168,7 +168,7 @@ Report an Issue:
 - Search results should display a message when seats are unavailable for promotional code, as assumed.
 - Search results should display a message when flight schedules are unavailable for promotional code, as assumed.
 
--- 
+---
 
 **Report Issues Regression Test**
 - Total test jobs: 2
@@ -176,7 +176,7 @@ Report an Issue:
 - Failed: 0
 - Test run: https://github.com/csongchinn/mars-air-project/actions/runs/24828871869
 
-# Issues that require clarifications
+# Issues Requiring Clarifications
 
 - Inconsistency observed between the stated acceptance criteria and the displayed message “Seats available! Call 0800 MARSAIR to book!” on the MarsAir website.
 - Form submissions do not consistently display validation or error messages when required inputs are missing or invalid.
