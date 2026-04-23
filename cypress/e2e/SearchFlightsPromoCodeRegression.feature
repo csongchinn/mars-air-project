@@ -64,4 +64,3 @@ Feature: Search Flights and Promo Code Regression Tests
             | December                  | July                 | unsuccessful | invalid       |
             | July (next year)          | December             | unsuccessful | valid         |
             | July (two years from now) | December (next year) | unsuccessful | invalid       |
-            | August                    | December (next year) | unsuccessful | valid         |

@@ -118,6 +118,10 @@ Then the search results should display "Unfortunately, this schedule is not poss
 
 # Assumptions 
 
+Search flight:
+- Return flight cannot be earlier than departure flight. 
+- Search results should display a message if return flight is earlier than departure flight.
+
 Back button:
 - Takes user back to previous page. For example, if user goes directly to /report page, clicking Back will bring user to Home page.
 
@@ -125,6 +129,8 @@ Promotional Code:
 
 - Promotional code can apply a discount of up to 90%.
 - Promotional code can be reused. Confirmation is required if usage should be restricted.
+- Search results should display a message when seats are unavailable for promotional code. 
+- Search results should display a message when flight schedules are unavailable for promotional code. 
 
 Seats:
 
