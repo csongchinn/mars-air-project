@@ -98,6 +98,7 @@ Then('The {string} is displayed', (displayType) => {
             break;
 
     }
+    cy.screenshot(`${displayType}`);
 });
 
 Then('The user clicks on {string}', (buttonType) => {
@@ -207,8 +208,4 @@ Then('The user should be on {string} page', (newPage) => {
             cy.url().should('include', '/issues');
             break;
     }
-});
-
-Then('I took a screenshot of the homepage', () => {
-    cy.screenshot('homepage')
 });

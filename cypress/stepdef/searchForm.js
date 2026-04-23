@@ -8,6 +8,7 @@ When('The user search departing flight {string} and returning flight {string}', 
 When('The depart flight {string} and return flight {string} is selected', (departFlight, returnFlight) => {
     cy.get('#departing option:selected').should('have.text', `${departFlight}`);
     cy.get('#returning option:selected').should('have.text', `${returnFlight}`);
+    cy.screenshot('flight-selected');
 });
 
 When('The {string} flight should only be July and December for next two years', (flightType) => {
@@ -36,7 +37,7 @@ When('The {string} flight should only be July and December for next two years', 
         })
 });
 
-When('The {string} search results should be displayed', (result) => {
+When('The search results should be displayed with {string}', (result) => {
     cy.get('div#content h2').contains('Search Results').should('be.visible');
     switch (result) {
         case "successful":
@@ -59,6 +60,7 @@ When('The {string} search results should be displayed', (result) => {
                 .should('include.text', 'Unfortunately, this schedule is not possible. Please try again.');
             break;
     }
+    cy.screenshot('search-result');
 });
 
 When('The user enters a {string} promotional code', (promoCodeType) => {
@@ -94,7 +96,7 @@ When('The user enters a {string} promotional code', (promoCodeType) => {
         .should('be.visible')
         .clear()
         .type(promoCode);
-    // cy.screenshot();
+    cy.screenshot('promoCode-entered');
     cy.wrap(promoCode).as('promoCode')
 });
 
@@ -128,4 +130,5 @@ When('The promotional code results should be displayed', function () {
             }
         })
     })
+    cy.screenshot('promoCode-result');
 });

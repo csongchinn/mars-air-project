@@ -21,6 +21,7 @@ When('The user should see the issue has been logged with {string} and {string}',
         .then(() => {
             if (!found) throw new Error(`❌ Issue was not reported.`)
         })
+    cy.screenshot('issue-report-result');
 });
 
 

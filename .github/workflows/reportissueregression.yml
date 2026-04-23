@@ -11,8 +11,14 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - tag: "@report_issue_regression"
-            name: "Report an Issue"
+          - tag: "@report_issue_regression_successful"
+            name: "Report an Issue - Successful"
+
+          - tag: "@report_issue_regression_Unsuccessful"
+            name: "Report an Issue - Unsuccessful"
+
+          - tag: "@report_issue_regression_duplicate"
+            name: "Report an Issue - Duplicate"
 
     name: ${{ matrix.name }} - Regression Test 
 

@@ -7,7 +7,7 @@ Feature: Search Flights and Promo Code Regression Tests
         When The user search departing flight "<departFlight>" and returning flight "<returnFlight>"
         Then The depart flight "<departFlight>" and return flight "<returnFlight>" is selected
         When The user clicks on "Search"
-        Then The "<result>" search results should be displayed
+        Then The search results should be displayed with "<result>"
 
         @search_flight_regression_successful
         Examples:
@@ -41,7 +41,7 @@ Feature: Search Flights and Promo Code Regression Tests
         Then The depart flight "<departFlight>" and return flight "<returnFlight>" is selected
         When The user enters a "<promoCodeType>" promotional code
         When The user clicks on "Search"
-        Then The "<result>" search results should be displayed
+        Then The search results should be displayed "<result>"
         Then The promotional code results should be displayed
 
         @search_flight_promo_code_regression_successful
