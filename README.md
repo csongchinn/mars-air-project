@@ -118,7 +118,24 @@ Then the search results should display "Unfortunately, this schedule is not poss
 
 # Assumptions 
 
+Back button:
+- Takes user back to previous page. For example, if user goes directly to /report page, clicking Back will bring user to Home page.
+
+Promotional Code:
+
 - Promotional code can apply a discount of up to 90%.
 - Promotional code can be reused. Confirmation is required if usage should be restricted.
+
+Seats:
+
 - Seats availability details are not accessible.
 - Seats availablility is out of scope for this testing.
+
+Report an Issue:
+
+- Needs to be tested.
+- Issue has already been reported will pass.
+- Issue that could not be found will fail.
+
+# Test Results
+
