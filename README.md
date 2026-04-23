@@ -150,6 +150,7 @@ Report an Issue:
 - Passed: 3
 - Failed: 2 
 - Test run: https://github.com/csongchinn/mars-air-project/actions/runs/24823854220
+- Test scenarios & examples: https://github.com/csongchinn/mars-air-project/blob/main/cypress/e2e/MarsAirSmoke.feature
 
 *Failed tests:*
 - "Book a ticket to the red planet now!" is not a link
@@ -162,6 +163,7 @@ Report an Issue:
 - Passed: 2
 - Failed: 4
 - Test run: https://github.com/csongchinn/mars-air-project/actions/runs/24829219661/job/72673102382
+- Test scenarios & examples: https://github.com/csongchinn/mars-air-project/blob/main/cypress/e2e/SearchFlightsPromoCodeRegression.feature
 
 *Failed tests:*
 - Return date is earlier than Departure date should fail as assumed
@@ -175,6 +177,7 @@ Report an Issue:
 - Passed: 2
 - Failed: 0
 - Test run: https://github.com/csongchinn/mars-air-project/actions/runs/24828871869
+- Test scenarios & examples: https://github.com/csongchinn/mars-air-project/blob/main/cypress/e2e/ReportIssueRegression.feature
 
 # Issues Requiring Clarifications
 
