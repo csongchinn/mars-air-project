@@ -1,11 +1,21 @@
-name: Homepage Testing
+name: Report Issue Regression Test
 
 on:
   workflow_dispatch:
 
 jobs:
-  Navigation:
+  smoke-tests:
     runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - tag: "@report_issue_regression"
+            name: "Report an Issue"
+
+    name: ${{ matrix.name }} - Smoke Test 
+
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
@@ -14,17 +24,20 @@ jobs:
         run: npm ci
 
       - name: Test Run
-        continue-on-error: true
-        run: npx cypress run --spec "cypress/e2e/Homepage.feature"
+        run: |
+          npx cypress run \
+          --spec "cypress/e2e/ReportIssueRegression.feature" \
+          --env TAGS="${{ matrix.tag }}"
 
       - name: Generate Cucumber Report
+        if: always()
         run: node report.js
 
       - name: Upload Test Report
         uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: cucumber-report
+          name: cucumber-report-${{ matrix.tag }}
           path: |
             cypress/reports/
             cypress/screenshots/

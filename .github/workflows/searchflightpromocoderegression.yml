@@ -1,0 +1,59 @@
+name: Mars Air Smoke Test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  smoke-tests:
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - tag: "@search_flight_regression_successful"
+            name: "Search Flight Without Promo Code - Successful"
+
+          - tag: "@search_flight_regression_notpossible"
+            name: "Search Flight Without Promo Code - Not Possible"
+
+          - tag: "@search_flight_regression_unsuccessful"
+            name: "Search Flight Without Promo Code - Unsuccessful"
+
+          - tag: "@search_flight_promo_code_regression_successful"
+            name: "Search Flight With Promo Code - Successful"
+
+          - tag: "@search_flight_promo_code_regression_notpossible"
+            name: "Search Flight With Promo Code - Not Possible"
+
+          - tag: "@search_flight_promo_code_regression_unsuccessful"
+            name: "Search Flight With Promo Code - Unsuccessful"
+
+    name: ${{ matrix.name }} - Smoke Test 
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Test Run
+        run: |
+          npx cypress run \
+          --spec "cypress/e2e/SearchFlightsPromoCodeRegression.feature" \
+          --env TAGS="${{ matrix.tag }}"
+
+      - name: Generate Cucumber Report
+        if: always()
+        run: node report.js
+
+      - name: Upload Test Report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cucumber-report-${{ matrix.tag }}
+          path: |
+            cypress/reports/
+            cypress/screenshots/
+          retention-days: 7
