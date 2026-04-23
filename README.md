@@ -145,3 +145,43 @@ Report an Issue:
 
 # Test Results
 
+**Mars Air Smoke Test:**
+- Total test jobs: 5
+- Passed: 3
+- Failed: 2 
+- Test run: https://github.com/csongchinn/mars-air-project/actions/runs/24823854220
+
+*Failed tests:*
+- "Book a ticket to the red planet now!" is not a link
+- Back button does not work as assumed 
+
+--
+
+**Search Flights and Promo Code Regression Test**
+- Total test jobs: 6
+- Passed: 2
+- Failed: 4
+- Test run: https://github.com/csongchinn/mars-air-project/actions/runs/24829219661/job/72673102382
+
+*Failed tests:*
+- Return date is earlier than Departure date should fail as assumed
+- Search results should display a message when seats are unavailable for promotional code, as assumed.
+- Search results should display a message when flight schedules are unavailable for promotional code, as assumed.
+
+-- 
+
+**Report Issues Regression Test**
+- Total test jobs: 2
+- Passed: 2
+- Failed: 0
+- Test run: https://github.com/csongchinn/mars-air-project/actions/runs/24828871869
+
+# Issues that require clarifications
+
+- Inconsistency observed between the stated acceptance criteria and the displayed message “Seats available! Call 0800 MARSAIR to book!” on the MarsAir website.
+- Form submissions do not consistently display validation or error messages when required inputs are missing or invalid.
+- The promotional code can be submitted without selecting departure and return flights, resulting in incorrect or misleading search result messages.
+- Invalid promotional codes do not trigger an error message unless both departure and return flights are selected.
+- Navigating back from the problem definition page (/mission) redirects the user to a “Not authorized” page.
+- Back button behavior differs from expected navigation flow.
+- After closing an issue post‑edit, deleting the issue and navigating back returns the user to the edit state instead of reflecting the deletion.
