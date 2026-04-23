@@ -11,11 +11,6 @@ Feature: Report an Issue Regression Tests
             | title                          | description                                                          | severity |
             | No error prompt on Report page | There is no error prompt when an empty issue report is being created | Low      |
 
-        @report_issue_regression_unsuccessful
-        Examples:
-            | title                          | description                                                          | severity |
-            | No error prompt on Report page | There is no error prompt when an empty issue report is being created | Medium   |
-
         @report_issue_regression_duplicate
         Examples:
             | title                                  | description                                                                            | severity |

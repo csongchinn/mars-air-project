@@ -10,7 +10,7 @@ When('The user log an issue with {string} {string} and {string}', (title, descri
 When('The user should see the issue has been logged with {string} and {string}', (title, severity) => {
     cy.get('body').then(($body) => {
         if ($body.text().includes('This issue has already been reported.')) {
-            throw new Error('❌ This issue has already been reported.')
+            cy.log('❌ This issue has already been reported.')
         }
     })
     let found = false

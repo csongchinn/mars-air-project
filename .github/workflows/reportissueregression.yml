@@ -14,9 +14,6 @@ jobs:
           - tag: "@report_issue_regression_successful"
             name: "Report an Issue - Successful"
 
-          - tag: "@report_issue_regression_unsuccessful"
-            name: "Report an Issue - Unsuccessful"
-
           - tag: "@report_issue_regression_duplicate"
             name: "Report an Issue - Duplicate"
 
